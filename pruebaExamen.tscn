@@ -1,17 +1,31 @@
 [gd_scene format=3 uid="uid://ltkrj674vksn"]
 
+[ext_resource type="Script" uid="uid://b8lsgygxge5f2" path="res://character_body_2d.gd" id="1_7744f"]
 [ext_resource type="Texture2D" uid="uid://bfewmtp1uwsfx" path="res://icon.svg" id="1_d0dso"]
+[ext_resource type="PackedScene" uid="uid://doufig7cqfcq7" path="res://suelo.tscn" id="3_a6hb8"]
+[ext_resource type="PackedScene" uid="uid://b3twpa57ai1dg" path="res://enemigo.tscn" id="4_6ji52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
-size = Vector2(116, 133)
+size = Vector2(112, 113.5)
 
 [node name="Node2D" type="Node2D" unique_id=1270796614]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=194190798]
+[node name="Personaje" type="CharacterBody2D" parent="." unique_id=194190798]
+position = Vector2(-437, -5)
+script = ExtResource("1_7744f")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1240159760]
+[node name="Sprite2D" type="Sprite2D" parent="Personaje" unique_id=1240159760]
+position = Vector2(165, 22)
 texture = ExtResource("1_d0dso")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1244297133]
-position = Vector2(4, -2.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Personaje" unique_id=1244297133]
+position = Vector2(155, 20)
 shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Camera2D" type="Camera2D" parent="Personaje" unique_id=1013332296]
+position = Vector2(154, 39)
+
+[node name="Node2D" parent="." unique_id=1526913529 instance=ExtResource("3_a6hb8")]
+position = Vector2(5, 81)
+
+[node name="enemigo" parent="." unique_id=2110371227 instance=ExtResource("4_6ji52")]
